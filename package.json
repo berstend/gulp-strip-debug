@@ -1,13 +1,11 @@
 {
-  "name": "gulp-strip-debug",
+  "name": "gulp-strip-debug-arbitrary",
   "version": "1.0.2",
-  "description": "Strip console and debugger statements from JavaScript code",
+  "description": "Strip console and debugger statements (with whitelist) from JavaScript code",
   "license": "MIT",
-  "repository": "sindresorhus/gulp-strip-debug",
+  "repository": "berstend/gulp-strip-debug-arbitrary",
   "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "http://sindresorhus.com"
+    "name": "berstend"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -37,7 +35,7 @@
   ],
   "dependencies": {
     "gulp-util": "^3.0.0",
-    "strip-debug": "^1.0.0",
+    "strip-debug-arbitrary": "git://github.com/berstend/strip-debug-arbitrary",
     "through2": "^0.6.1"
   },
   "devDependencies": {

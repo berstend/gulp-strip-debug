@@ -1,12 +1,13 @@
-# [gulp](https://github.com/wearefractal/gulp)-strip-debug [![Build Status](https://travis-ci.org/sindresorhus/gulp-strip-debug.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-strip-debug)
+# [gulp](https://github.com/wearefractal/gulp)-strip-debug-arbitrary
 
-> Strip `console`, `alert`, and `debugger` statements from JavaScript code with [strip-debug](https://github.com/sindresorhus/strip-debug)
+
+> Strip `alert`, `debugger` and arbitrary statements (e.g. `console` with property whitelist) from JavaScript code with [strip-debug-arbitrary](https://github.com/berstend/strip-debug-arbitrary)
 
 
 ## Install
 
 ```sh
-$ npm install --save-dev gulp-strip-debug
+$ npm install --save berstend/gulp-strip-debug-arbitrary
 ```
 
 
@@ -14,7 +15,7 @@ $ npm install --save-dev gulp-strip-debug
 
 ```js
 var gulp = require('gulp');
-var stripDebug = require('gulp-strip-debug');
+var stripDebug = require('gulp-strip-debug-arbitrary');
 
 gulp.task('default', function () {
 	return gulp.src('src/app.js')
@@ -23,7 +24,29 @@ gulp.task('default', function () {
 });
 ```
 
+## API
+
+By default `alert`, and `debugger` statements are being stripped and without additional parameters all `console` statements as well.
+The latter can be overwritten by adding some parameters to the `stripDebug()` method.
+Stripped means the statements are replaced by `void 0` which UglifyJS can later remove altogether.
+
+## stripDebug(id, whitelist)
+
+### id
+
+Type: `string`
+Default: `console`
+Optional: Pass the name of the statement to remove (e.g. "log"), if none is given "console" is being used.
+
+
+### whitelist
+
+Type: `array`
+Default: `[]`
+Optional: Pass an array of properties to exclude (e.g. ["warn", "error"])
+
+
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](http://sindresorhus.com) & berstend
