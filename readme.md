@@ -27,22 +27,29 @@ gulp.task('default', function () {
 ## API
 
 By default `alert`, and `debugger` statements are being stripped and without additional parameters all `console` statements as well.
+
 The latter can be overwritten by adding some parameters to the `stripDebug()` method.
+
 Stripped means the statements are replaced by `void 0` which UglifyJS can later remove altogether.
+
 
 ## stripDebug(id, whitelist)
 
 ### id
 
 Type: `string`
+
 Default: `console`
+
 Optional: Pass the name of the statement to remove (e.g. "log"), if none is given "console" is being used.
 
 
 ### whitelist
 
 Type: `array`
+
 Default: `[]`
+
 Optional: Pass an array of properties to exclude (e.g. ["warn", "error"])
 
 
